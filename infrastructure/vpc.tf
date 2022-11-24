@@ -1,44 +1,46 @@
-
-# Create a VPC for the region associated with the AZ
 resource "aws_vpc" "patent_vpc" {
-  cidr_block = cidrsubnet("10.0.0.0/16", 4, var.region_number[data.aws_availability_zone.az_a.region])
-  tags = {
+    cidr_block  = "10.0.0.0/16"
+    tags = {
         Name    = "Patent VPC"
-   }
+  }
 }
 
-# Create a subnet for the AZ within the regional VPC
 resource "aws_subnet" "public_subnet_a" {
-  vpc_id     = aws_vpc.patent_vpc.id
-  cidr_block = cidrsubnet(aws_vpc.patent_vpc.cidr_block, 4, var.az_number[data.aws_availability_zone.az_a.name_suffix])
+  vpc_id           = aws_vpc.patent_vpc.id
+  cidr_block       = "10.0.1.0/24"
+  availability_zone="us-west-2a"
   tags = {
-     Name = "Public Subnet a"
-   }
+    Name = "Public Subnet 1"
+  }
 }
 
 resource "aws_subnet" "public_subnet_b" {
-  vpc_id     = aws_vpc.patent_vpc.id
-  cidr_block = cidrsubnet(aws_vpc.patent_vpc.cidr_block, 4, var.az_number[data.aws_availability_zone.az_b.name_suffix])
+  vpc_id           = aws_vpc.patent_vpc.id
+  cidr_block       = "10.0.2.0/24"
+  availability_zone="us-west-2b"
   tags = {
-     Name = "Public Subnet b"
-   }
+    Name     = "Public Subnet 2"
+  }
 }
 
 resource "aws_subnet" "private_subnet_a" {
-  vpc_id     = aws_vpc.patent_vpc.id
-  cidr_block = cidrsubnet(aws_vpc.patent_vpc.cidr_block, 4, var.az_number[data.aws_availability_zone.az_c.name_suffix])
+  vpc_id           = aws_vpc.patent_vpc.id
+  cidr_block       = "10.0.3.0/24"
+  availability_zone="us-west-2a"
   tags = {
-     Name = "Private Subnet a"
-   }
+    Name = "Private Subnet 1"
+  }
 }
 
 resource "aws_subnet" "private_subnet_b" {
-  vpc_id     = aws_vpc.patent_vpc.id
-  cidr_block = cidrsubnet(aws_vpc.patent_vpc.cidr_block, 4, var.az_number[data.aws_availability_zone.az_d.name_suffix])
+  vpc_id           = aws_vpc.patent_vpc.id
+  cidr_block       = "10.0.4.0/24"
+  availability_zone="us-west-2b"
   tags = {
-     Name = "Private Subnet b"
-   }
+    Name = "Private Subnet 2"
+  }
 }
+
 resource "aws_internet_gateway" "gw" {
   vpc_id           = aws_vpc.patent_vpc.id
   
@@ -87,7 +89,6 @@ resource "aws_nat_gateway" "nat_gw" {
   # on the Internet Gateway for the VPC.
   depends_on = [aws_internet_gateway.gw]
 }
-
 
 resource "aws_default_route_table" "private_route_table" {
   default_route_table_id = aws_vpc.patent_vpc.default_route_table_id
