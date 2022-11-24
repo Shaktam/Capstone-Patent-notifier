@@ -9,39 +9,3 @@ headers = {'content-type' : 'application/json',
 auth_response = requests.get(api_url_base, headers=headers)
 response=json.loads(auth_response.content.decode('utf-8'))
 print(response)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# import requests
-# r = requests.get('https://httpbin.org/basic-auth/user/pass', auth=('user', 'pass'))
-# r.status_code
-# 200
-# r.headers['content-type']
-# 'application/json; charset=utf8'
-# r.encoding
-# 'utf-8'
-# r.text
-# '{"authenticated": true, ...'
-# r.json()
-# {'authenticated': True}
-
-
-# 'x-content-type-options': 'nosniff',
-# 'charset':'utf8' ,
