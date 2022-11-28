@@ -10,5 +10,5 @@ locals {
 
 variable "s3bucket_terraform" {
     type = string
-    default = "patent-notifier-terraform"
+    default = "terraform-state-dynodb-patent"
 }
