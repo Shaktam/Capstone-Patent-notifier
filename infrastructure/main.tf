@@ -8,6 +8,8 @@ terraform {
  }
 
  # Configure the AWS Provider
- provider "aws" {
-   region = "us-west-2"
+provider "aws" {
+   region = var.aws_region
  }
+
+data "aws_caller_identity" "current" {}
