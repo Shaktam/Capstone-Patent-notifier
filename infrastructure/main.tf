@@ -5,11 +5,7 @@ terraform {
       version = "~> 4.0"
     }
   }
-   backend "s3" {
-    bucket = "terraform-state-dynodb-patent"
-    key    = "terraform.tfstate"
-    region = "us-west-2"
-  }
+   backend "s3" {}
 }
 
  # Configure the AWS Provider
