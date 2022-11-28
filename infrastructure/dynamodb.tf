@@ -5,8 +5,8 @@ resource "aws_dynamodb_table" "patent_dynamodb_table" {
   stream_enabled   = true
   stream_view_type = "NEW_AND_OLD_IMAGES"
   billing_mode     = "PROVISIONED"
-  read_capacity    = 5
-  write_capacity   = 5
+  read_capacity    = 100
+  write_capacity   = 100
 
   attribute {
     name = "patent_id"
