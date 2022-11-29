@@ -5,7 +5,7 @@ resource "aws_lambda_function" "patent_lambda_crawler" {
   handler       = "patent.handler"
   timeout       = 300
   runtime       = "python3.9"
-   source_code_hash = filebase64sha256("dbbuild/apis.zip")
+  source_code_hash = filebase64sha256("dbbuild/api-server.zip")
 
   environment {
     variables   = {
