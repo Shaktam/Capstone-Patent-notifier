@@ -5,7 +5,7 @@ on:
       - main
   workflow_dispatch:
  
-patents:
+jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
