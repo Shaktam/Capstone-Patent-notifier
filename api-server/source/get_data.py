@@ -9,8 +9,6 @@ def store_only_ids(patent_id):
         store_patent_id.append((patent_ids['patent_id']))
     return store_patent_id
 
-store_patent_id=store_only_ids(patent_id)
-
 def get_patent_datas(store_patent_id):
 
     baseurl='https://api.patentsview.org/patents/query?q={"patent_id":'
@@ -24,5 +22,3 @@ def get_patent_datas(store_patent_id):
         json_patent_data = r.json()
         patent_data.append(json_patent_data)
     return patent_data
-
-get_patent_datas(store_patent_id)
