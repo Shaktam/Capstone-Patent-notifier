@@ -7,7 +7,7 @@ dynamodb = boto3.resource('dynamodb')
 patent_Table = dynamodb.Table('patent_dynamodb_table')
 
 def save_patent_to_db(data):
-    Patent_Table.put_item(Item = data)
+    patent_Table.put_item(Item = data)
 
 def save_patent_datas(patent_data):
     for data in patent_data:
