@@ -4,7 +4,7 @@ from get_account import get_patent_ids
 
 def handler(event, context):
     patent_id= get_patent_ids()
-    store_patent_id=store_only_ids(patent_id)
+    stored_patent_id=store_only_ids(patent_id)
     patent_data=get_patent_datas(store_patent_id)
     save_patent_datas(patent_data)
     print(patent_data)
