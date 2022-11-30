@@ -12,3 +12,9 @@ variable "s3bucket_terraform" {
     type = string
     default = "terraform-state-dynodb-patent"
 }
+
+variable "sns_email" {
+  description = "Database customer email"
+  type        = string
+  sensitive   = true
+}
