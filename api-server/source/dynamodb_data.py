@@ -13,3 +13,4 @@ def save_patent_to_db(data):
 def save_patent_datas(patent_data):
     for data in patent_data:
         save_patent_to_db(data)
+        
