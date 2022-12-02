@@ -3,4 +3,3 @@
 terraform.tfstate
 terraform.tfstate.backup
 notification.tfvars
-*.DS_Store

@@ -18,6 +18,11 @@ resource "aws_lambda_function" "patent_lambda_crawler" {
 resource "aws_lambda_layer_version" "lambda_layer" {
   filename   = "dbbuild/requests_layer.zip"
   layer_name = "lambda_layer"
-
   compatible_runtimes = ["python3.9"]
+}
+
+resource "aws_lambda_event_source_mapping" "patent_table_update" {
+  event_source_arn  = aws_dynamodb_table.patent_dynamodb_table.stream_arn
+  function_name     = aws_lambda_function.patent_lambda_crawler.arn
+  starting_position = "LATEST"
 }
