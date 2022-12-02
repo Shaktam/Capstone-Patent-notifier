@@ -1,9 +1,11 @@
 import requests
+import logging
 import json
 from dotenv import load_dotenv
 from pathlib import Path  # python3 only
 env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
+import os
 
 api_url_base = 'https://search.patentsview.org/api/v1/patent/?q={"patent_year":"2020"}&f=["patent_id"]'
 PATENT_CSRF_TOKEN= os.getenv("PATENT_CSRF_TOKEN")
