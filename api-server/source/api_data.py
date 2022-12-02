@@ -4,19 +4,19 @@ import json
 import re
 
 
-patent_id= get_patent_ids()
+patent_id_list= get_patent_ids()
 store_patent_id=[]
-def store_only_ids(patent_id):
-    for patent_ids in patent_id:
-        store_patent_id.append(patent_ids['patent_id'])
+def get_id(patent_id_list):
+    for patent_id in patent_id_list:
+        store_patent_id.append(patent_id['patent_id'])
     return store_patent_id
     
-store_patent_id=store_only_ids(patent_id)
+stored_patent_id=get_id(patent_id_list)
 patent_data=[]
-def get_patent_datas(store_patent_id):
+def get_patent_datas(stored_patent_id):
     baseurl='https://api.patentsview.org/patents/query?q={"patent_id":'
     field = '}&f=["patent_id","patent_title","patent_abstract","assignee_organization","patent_date"]'
-    for id in store_patent_id:
+    for id in stored_patent_id:
         url= baseurl +str(id) + field
         r = requests.get(url)
         json_patent_data = json.loads(r.content.decode('utf-8'))
