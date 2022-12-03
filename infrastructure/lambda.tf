@@ -27,16 +27,16 @@ resource "aws_cloudwatch_event_rule" "every_five_minutes" {
     schedule_expression = "rate(5 minutes)"
 }
 
-resource "aws_cloudwatch_event_target" "job_crawler_every_five_minutes" {
+resource "aws_cloudwatch_event_target" "patent_crawler_every_five_minutes" {
     rule = aws_cloudwatch_event_rule.every_five_minutes.name
-    target_id = "crawl-jobs"
-    arn = aws_lambda_function.job_crawler.arn
+    target_id = "patent-informer"
+    arn = aws_lambda_function.patent_lambda_crawler.arn
 }
 
-resource "aws_lambda_permission" "allow_cloudwatch_to_call_job_crawler" {
+resource "aws_lambda_permission" "allow_cloudwatch_to_call_patent_crawler" {
     statement_id = "AllowExecutionFromCloudWatch"
     action = "lambda:InvokeFunction"
-    function_name = aws_lambda_function.job_crawler.function_name
+    function_name = aws_lambda_function.patent_lambda_crawler.function_name
     principal = "events.amazonaws.com"
     source_arn = aws_cloudwatch_event_rule.every_five_minutes.arn
 }
