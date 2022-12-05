@@ -6,7 +6,7 @@ resource "aws_lambda_function" "patent_lambda_crawler" {
   timeout       = 300
   runtime       = "python3.9"
   layers        = [aws_lambda_layer_version.lambda_layer.arn]
-  source_code_hash = filebase64sha256("dbbuild/api-server.zip ")
+  source_code_hash = filebase64sha256("dbbuild/api-server.zip")
 
   environment {
     variables = {
