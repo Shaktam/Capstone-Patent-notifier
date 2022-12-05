@@ -34,6 +34,5 @@ def get_patent_datas(stored_patent_id):
                 "patent_date":patent['patent_date'],
                 "organization":organization
                 }
-        patent_data.append(list_data)      
-        print(patent_data)    
+        patent_data.append(list_data)        
     return patent_data
