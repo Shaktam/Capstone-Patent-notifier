@@ -21,14 +21,14 @@ resource "aws_lambda_layer_version" "lambda_layer" {
   compatible_runtimes = ["python3.9"]
 }
 
-resource "aws_cloudwatch_event_rule" "every_thirty_minutes" {
-    name = "every-thirty-minutes"
-    description = "Fires every thirty minutes"
-    schedule_expression = "rate(30 minutes)"
+resource "aws_cloudwatch_event_rule" "every_hour" {
+    name = "every_hour"
+    description = "Fires every hour"
+    schedule_expression = "rate(60 minutes)"
 }
 
-resource "aws_cloudwatch_event_target" "patent_crawler_every_thirty_minutes" {
-    rule = aws_cloudwatch_event_rule.every_thirty_minutes.name
+resource "aws_cloudwatch_event_target" "patent_crawler_every_hour" {
+    rule = aws_cloudwatch_event_rule.every_hour.name
     target_id = "patent-informer"
     arn = aws_lambda_function.patent_lambda_crawler.arn
 }
@@ -38,5 +38,5 @@ resource "aws_lambda_permission" "allow_cloudwatch_to_call_patent_crawler" {
     action = "lambda:InvokeFunction"
     function_name = aws_lambda_function.patent_lambda_crawler.function_name
     principal = "events.amazonaws.com"
-    source_arn = aws_cloudwatch_event_rule.every_thirty_minutes.arn
+    source_arn = aws_cloudwatch_event_rule.every_hour.arn
 }
