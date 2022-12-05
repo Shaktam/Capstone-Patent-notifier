@@ -1,5 +1,6 @@
 import boto3
 import os
+
 # Get the service resource.
 dynamodb = boto3.resource('dynamodb')
 

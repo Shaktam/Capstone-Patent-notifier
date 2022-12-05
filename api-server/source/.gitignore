@@ -1,4 +1,0 @@
-api_venv
-*.env
-*__pycache__
-get_patent_id.json
