@@ -1,11 +1,11 @@
 import requests
 import logging
 import json
+import os
 from dotenv import load_dotenv
 from pathlib import Path  # python3 only
 env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
-import os
 
 for year in range(2020,2023):
     api_url_base = 'https://search.patentsview.org/api/v1/patent/?q={"patent_year":'+ str(year)+'}&f=["patent_id"]&o={"size":1000}'
