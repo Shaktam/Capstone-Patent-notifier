@@ -2,6 +2,9 @@ import json
 import re
 import requests
 
+baseurl='https://api.patentsview.org/patents/query?q={"patent_id":'
+field = '}&f=["patent_id","patent_title","patent_abstract","assignee_organization","patent_date"]'
+
 def get_id(patent_id_list):
     store_patent_id=[]
     for patent_id in patent_id_list:
@@ -10,8 +13,6 @@ def get_id(patent_id_list):
 
 def get_patent_datas(stored_patent_id):
     patent_data=[]  
-    baseurl='https://api.patentsview.org/patents/query?q={"patent_id":'
-    field = '}&f=["patent_id","patent_title","patent_abstract","assignee_organization","patent_date"]'
     for id in stored_patent_id:
         url= baseurl +str(id) + field
         response = requests.get(url)
