@@ -14,7 +14,7 @@ jobs:
       AWS_SESSION_TOKEN: ${{ secrets.AWS_SESSION_TOKEN }}
       PATENT_API_KEY: ${{ secrets.PATENT_API_KEY }}
       PATENT_CSRFTOKEN: ${{ secrets.PATENT_CSRFTOKEN }}
-      SNS: ${{ secrets.SNS }}
+      SNS: ${{ secrets.SNS_EMAIL }}
       AWS_REGION: us-west-2
     steps:
       - uses: actions/checkout@v3
