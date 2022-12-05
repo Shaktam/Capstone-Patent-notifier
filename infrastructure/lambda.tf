@@ -1,5 +1,5 @@
 resource "aws_lambda_function" "patent_lambda_crawler" {
-  filename     = "dbbuild/api-server.zip "
+  filename     = "dbbuild/api-server.zip"
   function_name = "patent-lambda-crawler"
   role          = local.iam_role  
   handler       = "lambda_function.lambda_handler"
