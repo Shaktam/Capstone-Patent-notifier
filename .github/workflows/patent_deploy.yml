@@ -25,4 +25,4 @@ jobs:
         run:  |
           cd infrastructure
           terraform init -backend-config=config.s3.tfbackend
-          terraform apply -var-file="notification.tfvars" -auto-approve
+          terraform apply -auto-approve
