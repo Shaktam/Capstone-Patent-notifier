@@ -7,7 +7,7 @@ env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
 import os
 
-api_url_base = 'https://search.patentsview.org/api/v1/patent/?q={"patent_year":"2020"}&f=["patent_id"]'
+api_url_base = 'https://search.patentsview.org/api/v1/patent/?q={"_and":[{"_gt":{"patent_year":"2020" }},{"_lte":{"patent_date":"2023"}}]}&f=["patent_id"]'
 PATENT_CSRF_TOKEN= os.getenv("PATENT_CSRF_TOKEN")
 PATENT_API_KEY =  os.getenv("PATENT_API_KEY")
 
