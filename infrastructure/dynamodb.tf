@@ -13,10 +13,6 @@ resource "aws_dynamodb_table" "patent_dynamodb_table" {
     type = "S"
   }
 
-  attribute {
-    name = "organization"
-    type = "S"
-  }
     tags = {
     Name        = "Patent-dynamodb-table"
   }
