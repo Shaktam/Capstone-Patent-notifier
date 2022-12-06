@@ -13,8 +13,11 @@ pip3 install -r requirements.txt --target python/lib/python3.9/site-packages
 zip -r ../infrastructure/dbbuild/requests_layer.zip .
 cd ..
 
+mkdir build
+
 echo "zip files for server"
-cd patent_data_server
+
+cd patent-data-server
 zip ../build/patent-data-server.zip requirements.txt
 zip -r ../build/patent-data-server.zip source 
 cd ..
