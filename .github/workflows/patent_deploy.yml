@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+      - patent-ci/cd
   workflow_dispatch:
  
 jobs:
@@ -25,4 +26,4 @@ jobs:
         run:  |
           cd infrastructure
           terraform init -backend-config=config.s3.tfbackend
-          terraform apply -auto-approve
+          terraform apply -auto-approve -var="PATENT_API_KEY=$PATENT_API_KEY"
