@@ -1,12 +1,12 @@
 resource "aws_lambda_function" "patent_lambda_crawler" {
-  filename     = "dbbuild/api-server.zip"
+  filename     = "dbbuild/patent-data-function.zip"
   function_name = "patent-lambda-crawler"
   role          = local.iam_role  
   handler       = "lambda_function.lambda_handler"
   timeout       = 900
   runtime       = "python3.9"
   layers        = [aws_lambda_layer_version.lambda_layer.arn]
-  source_code_hash = filebase64sha256("dbbuild/api-server.zip")
+  source_code_hash = filebase64sha256("dbbuild/patent-data-function.zip")
 
   environment {
     variables = {
