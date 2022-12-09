@@ -17,6 +17,12 @@ pip3 install -r requirements.txt --target python/lib/python3.9/site-packages
 zip -r ../infrastructure/dbbuild/requests_layer.zip .
 cd ..
 
+echo "zip files for notifier"
+
+cd patent_notifier/source
+zip -r ../../infrastructure/dbbuild/notifier.zip .
+cd ../..
+
 mkdir build
 
 echo "zip files for server"
@@ -28,3 +34,4 @@ cd ..
 
 echo  "upload to s3"
 aws s3 cp build/patent-data-server.zip s3://patent-data-informer/
+
