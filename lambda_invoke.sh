@@ -17,4 +17,4 @@ echo "Creating $NOTIFIER_FUNCTION URL"
 aws lambda create-function-url-config --function-name notifer --auth-type AWS_IAM
 
 echo "Configuring test-event for $NOTIFIER_FUNCTION and running the code"
-aws lambda invoke --function-name notifer --region us-west-2 --cli-binary-format raw-in-base64-out --cli-read-timeout 600 --payload file://dynamodb_payload.json response.json
+aws lambda invoke --function-name notifer --region us-west-2 --cli-binary-format raw-in-base64-out --cli-read-timeout 600 --payload file://sns_payload.json response.json
