@@ -19,5 +19,5 @@ jobs:
       AWS_REGION: us-west-2
     steps:
       - uses: actions/checkout@v3
-      - name: setup backend s3 buckets and make zipfile for lambda function
-        run:  test
+      - name: test
+        run: test
