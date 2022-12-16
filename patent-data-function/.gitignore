@@ -1,0 +1,3 @@
+api_venv
+*.env
+*__pycache__
