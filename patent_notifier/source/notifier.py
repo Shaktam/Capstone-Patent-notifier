@@ -5,6 +5,7 @@ client = boto3.client('sns')
 
 topic_arn = os.getenv("TOPIC_ARN")
 notification_topic="google"
+
 def inform_about_new_patent(title, abstract,organization):
     client.publish(
         TopicArn=topic_arn,
