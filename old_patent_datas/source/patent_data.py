@@ -20,29 +20,31 @@ def get_organization(patent):
 
 def get_patent_datas():
     patent_data=[] 
-    file = open("patent.csv", "r")
-    try:   
-        for id in file:
-            obj_data=get_patent_content(id)
-            for patent in obj_data['patents']:
-                organization=get_organization(patent)
-                list_data ={
-                    "patent_id":patent['patent_id'],
-                    "title":patent['patent_title'],
-                    "abstract":patent['patent_abstract'],
-                    "patent_date":patent['patent_date'],
-                    "organization":organization
-                    }
-            patent_data.append(list_data)
-# time.sleep is only used because of limitation of requests per minute.
-# In real time when we have full access, use the file without timesleep
-            time.sleep(1)     
-    except IOError:
-        print("Patent is Nonetype")  
-    finally:
-        file.close()     
+    with open("patent.csv", "r") as file:
+        try:   
+            for id in file:
+                obj_data=get_patent_content(id)
+                for patent in obj_data['patents']:
+                    organization=get_organization(patent)
+                    list_data ={
+                        "patent_id":patent['patent_id'],
+                        "title":patent['patent_title'],
+                        "abstract":patent['patent_abstract'],
+                        "patent_date":patent['patent_date'],
+                        "organization":organization
+                        }
+                patent_data.append(list_data)
+                print(patent_data)
+    # time.sleep is only used because of limitation of requests per minute.
+    # In real time when we have full access, use the file without timesleep
+                time.sleep(1)     
+        except IOError:
+            print("Patent is Nonetype")  
+        finally:
+            file.close()
+         
     return patent_data  
-
+get_patent_datas()
 def create_csv_file(patent_data):
     df = pd.DataFrame(patent_data)
     df.to_csv('patent_datas.csv', index=False)
