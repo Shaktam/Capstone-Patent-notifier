@@ -6,3 +6,7 @@
 [Synchronous Lambda Ivoke Funtion](https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html)
 [lambda url config](https://docs.amazonaws.cn/en_us/lambda/latest/dg/urls-tutorial.html)
 [Lambda invoke](https://docs.aws.amazon.com/cli/latest/reference/lambda/invoke.html)
+[Terraform apply repository collabrator files](https://github.com/integrations/terraform-provider-github/tree/main/examples/repository_collaborator)
+[automate csv from s3 to dynamodb](https://dheeraj3choudhary.com/aws-lambda-and-s3or-automate-csv-file-processing-from-s3-bucket-and-push-in-dynamodb-using-lambda-python)
+[csv to ddb](https://thekevinwang.com/2021/04/11/csv-to-dynamodb/)
+[terraform variables](https://upcloud.com/resources/tutorials/terraform-variables)
