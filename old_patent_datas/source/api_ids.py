@@ -38,7 +38,9 @@ def get_base_data(ids_for_url):
             patent_ids.extend(patent_id_list["patents"])      
             ids_for_url=get_last_id(patent_id_list["patents"]) 
         else:
-            print("patent not found")    
+            print("patent not found")  
+# time.sleep is only used because of limitation of requests per minute.
+# In real time when we have full access, use the file without timesleep              
         time.sleep(1)
     return patent_ids                   
 
