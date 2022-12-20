@@ -8,7 +8,6 @@ def get_patent_content(id):
     baseurl='https://api.patentsview.org/patents/query?q={"patent_id":'
     field = '}&f=["patent_id","patent_title","patent_abstract","assignee_organization","patent_date"]'
     url =baseurl+'"'+ str(id).strip()+'"'+field
-    print(url)
     response = requests.get(url)
     return json.loads(response.content.decode('utf-8')) 
 
@@ -35,15 +34,13 @@ def get_patent_datas():
                     "organization":organization
                     }
             patent_data.append(list_data)
-            print(patent_data)
 # time.sleep is only used because of limitation of requests per minute.
 # In real time when we have full access, use the file without timesleep
             time.sleep(1)     
     except IOError:
         print("Patent is Nonetype")  
     finally:
-        file.close()
-         
+        file.close()     
     return patent_data  
 
 def create_csv_file(patent_data):
