@@ -12,11 +12,11 @@ load_dotenv(dotenv_path=env_path)
 
 
 api_url='https://search.patentsview.org/api/v1/patent/?q={"_gte":{"patent_year":2022}}&f=["patent_id"]&o={"size":1000,"after":' 
-PATENT-CSRF-TOKEN= os.getenv("PATENT_CSRF_TOKEN")
-PATENT-API-KEY =  os.getenv("PATENT_API_KEY")
+PATENT_CSRF_TOKEN= os.getenv("PATENT_CSRF_TOKEN")
+PATENT_API_KEY =  os.getenv("PATENT_API_KEY")
 headers = {'content-type' : 'application/json',
-            'X-CSRFToken': PATENT-CSRF-TOKEN,
-            'X-Api-Key': PATENT-API-KEY}
+            'X-CSRFToken': PATENT_CSRF_TOKEN,
+            'X-Api-Key': PATENT_API_KEY}
 
 ids_for_url= []  
 def store_first_element():
