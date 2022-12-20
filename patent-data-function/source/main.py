@@ -8,7 +8,6 @@ import time
 env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
 
-
 api_url='https://search.patentsview.org/api/v1/patent/?q={"_gte":{"patent_year":2023}}&f=["patent_id"]&o={"size":1000,"after":' 
 PATENT_CSRF_TOKEN= os.getenv("PATENT_CSRF_TOKEN")
 PATENT_API_KEY =  os.getenv("PATENT_API_KEY")
@@ -47,3 +46,4 @@ def get_ids(patent_ids):
     for patent_id in patent_ids:
         store_patent_ids.append(patent_id['patent_id'])      
     return store_patent_ids
+    

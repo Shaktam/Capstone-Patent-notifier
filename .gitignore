@@ -1,3 +1,5 @@
 apis
+patent_data_server
 *.DS_Store
-patent_notifier.tf
+access_patent_data
+s3_patent_function
