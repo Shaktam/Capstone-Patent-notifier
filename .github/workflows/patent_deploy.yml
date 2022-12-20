@@ -27,6 +27,8 @@ jobs:
           cd infrastructure
           terraform init -backend-config=config.s3.tfbackend
           terraform apply \
+          -var "PATENT_API_KEY=${PATENT_API_KEY}" \
+          -var "PATENT_CSRF_TOKEN=${PATENT_CSRFTOKEN}" \
           -var "sns_email=${SNS}" \
           -auto-approve
       - name: configure test event and invoke lambda function
