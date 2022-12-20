@@ -1,5 +1,5 @@
 echo "Creating a Bucket for Terraform State"
-python3 creates3bucket.py
+sh patent_s3_bucket.sh terraform-state-dynodb-patent
 
 echo "Creating a Bucket for Patent Data"
 sh patent_s3_bucket.sh patent-data-informer
