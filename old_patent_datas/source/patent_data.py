@@ -19,8 +19,8 @@ def get_organization(patent):
     remove_bracket_from_string=re.sub(r'[\[\]]', r'', organisation_string)
     return remove_bracket_from_string.replace('"','')
 
-file = open("patent.csv", "r")
 def get_patent_datas(file):
+    file = open("patent.csv", "r")
     patent_data=[]  
     for id in file:
         obj_data=get_patent_content(id)
