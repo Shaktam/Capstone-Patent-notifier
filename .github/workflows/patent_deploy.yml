@@ -26,7 +26,9 @@ jobs:
         run:  |
           cd infrastructure
           terraform init -backend-config=config.s3.tfbackend
-          terraform apply -auto-approve
+          terraform apply \
+          -var "sns_email=${SNS}" \
+          -auto-approve
       - name: configure test event and invoke lambda function
         run:  |
           sh lambda_invoke.sh
