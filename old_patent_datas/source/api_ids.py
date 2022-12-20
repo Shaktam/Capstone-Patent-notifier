@@ -15,8 +15,8 @@ api_url='https://search.patentsview.org/api/v1/patent/?q={"_gte":{"patent_year":
 PATENT_CSRF_TOKEN= os.getenv("PATENT_CSRF_TOKEN")
 PATENT_API_KEY =  os.getenv("PATENT_API_KEY")
 headers = {'content-type' : 'application/json',
-            'X-CSRFToken': PATENT_CSRF_TOKEN,
-            'X-Api-Key': PATENT_API_KEY}
+            'X-CSRFToken': PATENT-CSRF-TOKEN,
+            'X-Api-Key': PATENT-API-KEY}
 
 ids_for_url= []  
 def store_first_element():
