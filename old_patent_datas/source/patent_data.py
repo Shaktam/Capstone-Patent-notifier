@@ -36,6 +36,8 @@ def get_patent_datas():
                     }
             patent_data.append(list_data)
             print(patent_data)
+# time.sleep is only used because of limitation of requests per minute.
+# In real time when we have full access, use the file without timesleep
             time.sleep(1)     
     except IOError:
         print("Patent is Nonetype")  
