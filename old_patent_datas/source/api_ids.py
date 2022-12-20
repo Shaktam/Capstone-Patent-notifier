@@ -53,3 +53,4 @@ def create_csv_file(store_patent_ids):
     df.to_csv('patent.csv', index=False)
     df_csv = pd.read_csv('patent.csv')
     return df_csv
+    
