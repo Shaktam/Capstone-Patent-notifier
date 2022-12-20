@@ -42,5 +42,3 @@ def create_csv_file(patent_data):
     df.to_csv('patent_datas.csv', index=False)
     df_csv = pd.read_csv('patent_datas.csv')
     return df_csv
-
-      
