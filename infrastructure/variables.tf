@@ -18,3 +18,14 @@ variable "sns_email" {
   type        = string
   sensitive   = true
 }
+
+variable "PATENT_CSRF_TOKEN" {
+  description = "Patent Token"
+  type        = string
+  sensitive   = true
+}
+variable "PATENT_API_KEY" {
+  description = "Patent key"
+  type        = string
+  sensitive   = true
+}

@@ -11,6 +11,8 @@ resource "aws_lambda_function" "patent_lambda_crawler" {
   environment {
     variables = {
       PATENTS_TABLE_NAME = aws_dynamodb_table.patent_dynamodb_table.name
+      PATENT_CSRF_TOKEN =var.PATENT_CSRF_TOKEN
+      PATENT_API_KEY=var.PATENT_API_KEY
     }
   }
 }
