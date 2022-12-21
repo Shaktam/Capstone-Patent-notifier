@@ -24,3 +24,6 @@
     *   Lambda
     *   Dynamodb
     *   Cloud Watch
+    *   SNS
+    *   Event Bridge
+    *   S3
